@@ -1,0 +1,56 @@
+
+count = 0
+circleX = 500 #x coordinates
+circleDirection = -10 # speed
+loop_frame = 1000
+frame_count_interval = 5 # speed of counting
+current_frame_count = 0 # counter to track the number of frames
+
+def setup():
+    size(1000, 600)
+    background(0)
+    f = createFont("Ink Free", 100)
+    fill("#FF0303") # red
+    textFont(f)
+    textAlign(CENTER, CENTER)
+    
+def draw(): 
+    global count 
+    global circleX 
+    global circleDirection
+    global current_frame_count
+    background(0)
+    
+    pushMatrix() # save current transformation
+    translate(circleX, 300) # moves the origin to the circle position
+    scale_x = scale_y = map(frameCount % loop_frame, 0, loop_frame, 0.5, 2) 
+    scale(scale_x, scale_y)  
+      
+    fill("#05817A") # teal
+    rect(-100, -100, 200, 200) # the translate moves the (0,0) origin
+    popMatrix()
+    
+    # pushMatrix() # save current transformation
+    # translate(circleX, 300) # moves the origin to the circle position
+    # scale_x = scale_y = map(frameCount % loop_frame, 0, loop_frame, 0.5, 2) 
+    # scale(scale_x, scale_y)  
+
+    fill("#FF0303") # red
+    text(str(count), circleX, 300)
+
+    
+    current_frame_count += 1 
+    
+    if current_frame_count >= frame_count_interval:
+        count += 1
+        current_frame_count = 0 
+        
+    circleX += circleDirection # moves horizontally
+    
+    if circleX > width - 100: # move to right
+        circleX = width - 100
+        circleDirection = -10 # to the left
+
+    elif circleX < 100:
+        circleX = 100
+        circleDirection = 10 
