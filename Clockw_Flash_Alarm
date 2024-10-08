@@ -16,8 +16,6 @@ alarm_hour = 14
 alarm_minute = 51
 alarm_second = 0
 alarm_triggered = False
-# alarm_duration = 10
-# triggered_time = None
 
 def setup():
     size(1000, 600)
@@ -51,11 +49,6 @@ def draw():
     popMatrix()
 
     circleX += circleDirection 
-    
-    # current_frame_count += 1
-    
-    # if current_frame_count >= frame_count_interval:
-    #     current_frame_count = 0 
         
     circleX += circleDirection # moves horizontally
     
@@ -66,21 +59,6 @@ def draw():
     elif circleX < 200:
         circleX = 200
         circleDirection = 10 
-        
-# alarm
-    # current_time_seconds = hr * 3600 + mn * 60 + sc # converting to seconds
-    
-    # if hr == alarm_hour and mn == alarm_minute and sc == alarm_second and not alarm_triggered:
-    #     alarm_triggered = True
-    #     trigger_time = current_time_seconds
-    
-    # if alarm_triggered and (current_time_seconds - triggered_time <= alarm_duration):
-    #     fill("#DE0AFF")
-    #     textSize(200)
-    #     text("ALARM!", width/2, height/2)
-        
-    # else:
-    #     alarm_triggered = False 
         
     if hr == alarm_hour and mn == alarm_minute and sc == alarm_second and alarm_triggered:
         fill("#DE0AFF")
