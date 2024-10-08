@@ -1,0 +1,98 @@
+'''
+Victoria Duong
+Code-Toolkit-Python.A.Fa24
+Code Assignment #3: A Clockw/an Alarm
+2024.10.08
+'''
+
+circleX = 300 #x coordinates
+circleDirection = -5 # speed
+loop_frame = 100
+
+current_frame_count = 0
+frame_count_interval = 50
+
+alarm_hour = 14
+alarm_minute = 51
+alarm_second = 0
+alarm_triggered = False
+# alarm_duration = 10
+# triggered_time = None
+
+def setup():
+    size(1000, 600)
+    background(0)
+    f = createFont("Ink Free", 100)
+    fill("#FF0303") # red
+    textFont(f)
+    textAlign(CENTER, CENTER)
+    
+def draw(): 
+    global circleX, circleDirection, alarm_triggered, trigger_time
+    
+    background(0)
+    
+    pushMatrix() # save current transformation
+    translate(circleX, 250) # moves the origin to the circle position
+    
+    scale_x = scale_y = map(frameCount % loop_frame, 0, loop_frame, 0.5, 2) 
+    scale(scale_x, scale_y)  
+      
+    
+    hr = hour()
+    mn = minute()
+    sc = second()
+    
+    time_str = nf(hr, 2) + ":" + nf(mn, 2) + ":" + nf(sc, 2)
+ 
+    fill("#FF0303") # red
+    text(time_str, 0, 0)
+
+    popMatrix()
+
+    circleX += circleDirection 
+    
+    # current_frame_count += 1
+    
+    # if current_frame_count >= frame_count_interval:
+    #     current_frame_count = 0 
+        
+    circleX += circleDirection # moves horizontally
+    
+    if circleX > width - 200: # move to right
+        circleX = width - 200
+        circleDirection = -10 # to the left
+
+    elif circleX < 200:
+        circleX = 200
+        circleDirection = 10 
+        
+# alarm
+    # current_time_seconds = hr * 3600 + mn * 60 + sc # converting to seconds
+    
+    # if hr == alarm_hour and mn == alarm_minute and sc == alarm_second and not alarm_triggered:
+    #     alarm_triggered = True
+    #     trigger_time = current_time_seconds
+    
+    # if alarm_triggered and (current_time_seconds - triggered_time <= alarm_duration):
+    #     fill("#DE0AFF")
+    #     textSize(200)
+    #     text("ALARM!", width/2, height/2)
+        
+    # else:
+    #     alarm_triggered = False 
+        
+    if hr == alarm_hour and mn == alarm_minute and sc == alarm_second and alarm_triggered:
+        fill("#DE0AFF")
+        textSize(200)
+        text("ALARM!", width/2, height/2)
+        alarm_triggered = False
+
+        
+    if not (hr == alarm_hour and mn == alarm_minute and sc == alarm_second):
+        alarm_triggered = True
+
+
+
+        
+        
