@@ -110,6 +110,7 @@ currentSong = 0 #track current song
 changeInterval = 1000 #1 seconds
 lastChange = 0 # store the last change time
 i = 345 # initialize 'i' outside the draw to keep its value across every frame
+# i = 100
 
 def setup():
     global musicnote
@@ -118,28 +119,31 @@ def setup():
     f = createFont("Bernard MT Condensed", 40)
     textFont(f)
     # printArray(PFont.list())
-    
 def draw(): 
     global musicnote, currentSong, lastChange, i
-    
     background(0)
     if musicnote: 
         image(musicnote, 0, 250, 4096/10, 4096/10)
     textAlign(CENTER)
     fill(255, 215, 0)
-    
     if millis() - lastChange > changeInterval: # lastchange = holds timestamp of last time the song title changed 
         currentSong = (currentSong + 1) % len(songTitles) # updates / len(songTitles) = all songs in list
-        lastChange = millis() #update last change time
-        
+        lastChange = millis() #update last change time    
         if currentSong == 0:
             i = 345
         else: 
-            i += 25
-    
+            i += 25        
+        # if currentSong == 0:
+        #     i = 100
+        # else:
+        #     i += 15    
     text(songTitles[currentSong], width/2, 100)
-    
+    i = 345
+    for j in range(currentSong):
 # bars
-
-    fill(255, 215, 0, 100)
-    rect(i, 125, 25, ranking[currentSong]) #(x, y, width, height)
+        fill(255, 215, 0, 100)
+        rect(i, 125, 25, ranking[j]) #(x, y, width, height)
+        i += 25
+# horizontal bars
+        # fill(255, 215, 0, 100)
+        # rect(400, i, ranking[j], 25)
