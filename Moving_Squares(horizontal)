@@ -1,0 +1,12 @@
+'''
+Horizontal Moving Squares
+'''
+
+def setup():
+  size(400, 400)
+  frameRate(24)
+
+def draw():
+  stroke(50, 50, 255)
+  fill(200, 200, 255)
+  rect(mouseX, 150, 100, 100)
