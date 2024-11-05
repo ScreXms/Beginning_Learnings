@@ -1,0 +1,12 @@
+'''
+Motion Line (the length depends on where your mouses last position)
+'''
+def setup():
+    size(400, 400)
+    strokeWeight(10)
+    stroke(155, 155, 255, 50)
+    frameRate(1)
+    
+def draw():
+    background(255)
+    line(pmouseX, pmouseY, mouseX, mouseY)
