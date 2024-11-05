@@ -1,0 +1,38 @@
+'''
+House drawing
+'''
+#base of house
+size(600, 600)
+stroke(0, 4, 5)
+fill(18, 124, 152)
+rect(150, 275, 300, 300)
+
+#blue window
+size(600, 600)
+stroke(0, 4, 5)
+fill(19, 23, 118)
+rect(250, 300, 100, 100)
+
+#triangle roof
+size(600, 600)
+stroke(0, 4, 5)
+fill(118, 19, 109)
+triangle(100, 300, 500, 300, 300, 75)
+
+#door
+size(600, 600)
+stroke(0, 4, 5)
+fill(19, 118, 38)
+rect(250, 500, 100, 80)
+
+#bushes
+size(600, 600)
+stroke(0, 4, 5)
+fill(111, 8, 16)
+circle(155, 550, 60)
+
+#bush inside
+size(600, 600)
+stroke(0, 4, 5)
+fill(111, 8, 16)
+rect(155, 550, 30)
