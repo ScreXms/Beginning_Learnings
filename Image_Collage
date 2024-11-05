@@ -1,0 +1,19 @@
+'''
+Collage
+'''
+
+size(900, 500)
+oh_No = loadImage("oh_no.png")
+#800 x 654
+Gun = loadImage("gun.png")
+#868 x 486
+Face = loadImage("Scared_face.png")
+#900 x 800
+Stick_Man = loadImage("Stick_Figure.png")
+#360 x 360
+
+background(0)
+image(Stick_Man, 0, 0, 360*1.5, 360*1.5)
+image(Gun, 225, 150, 969/5, 486/5)
+image(Face, 600, 150, 900/3, 800/3)
+Image(Oh_No, 600, 0, 800/5, 654/5)
