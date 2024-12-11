@@ -20,6 +20,18 @@ circleDirectionRL = 1
 circleDirectionLA = 1
 circleDirectionRA = 1
 
+colorX = color(random(255), random(255), random(255))
+colorH = color(random(255), random(255), random(255))
+colorLL = color(random(255), random(255), random(255))
+colorRL = color(random(255), random(255), random(255))
+colorLA = color(random(255), random(255), random(255))
+colorRA = color(random(255), random(255), random(255))
+
+top = loadImage("top.png") # 6138 x5000
+topX = 100
+topDirection = 1
+# chef = loadImage("chef.png") # 4928 x 3712
+# birthday = loadImage("birthday.png") # 4096 x 4096`
 
 def setup():
     size(600, 600)
@@ -36,6 +48,8 @@ def draw():
     global circleX, circleDirection, stop_char
     global circleH, circleLL, circleRL, circleLA, circleRA 
     global circleDirectionH, circleDirectionLL, circleDirectionRL, circleDirectionLA, circleDirectionRA
+    global colorX, colorH, colorLL, colorRL, colorLA, colorRA
+    global top, fedora, chef, bucket, birthday
 
     if keyPressed and key == ' ':
         stop_char = False
@@ -58,13 +72,14 @@ def draw():
     if stop_char:
         #Draw the Moving Version
      #tummy
-        fill(random(255), random(255), random(255))
+        colorX = color(random(255), random(255), random(255))
+        fill(colorX)
         ellipse(circleX, 350, 300, 300)
         circleX = circleX + circleDirection   
     else:
         # Draw the Stopped Version
         #tummy
-        fill(random(255), random(255), random(255))
+        fill(colorX)
         ellipse(circleX, 350, 300, 300)
    
 #HEAD    
@@ -75,13 +90,14 @@ def draw():
     if stop_char:
         #Draw the Moving Version
      #head
-        fill(random(255), random(255), random(255))
+        colorH = color(random(255), random(255), random(255))
+        fill(colorH)
         ellipse(circleH, 150, 150, 150)
         circleH = circleH + circleDirectionH   
     else:
         # Draw the Stopped Version
         #head
-        fill(random(255), random(255), random(255))
+        fill(colorH)
         ellipse(circleH, 150, 150, 150)
         
 #LEFT LEG    
@@ -92,13 +108,14 @@ def draw():
     if stop_char:
         #Draw the Moving Version
      #left leg
-        fill(random(255), random(255), random(255))
+        colorLL = color(random(255), random(255), random(255))
+        fill(colorLL)
         ellipse(circleLL, 500, 100, 100)
         circleLL = circleLL + circleDirectionLL   
     else:
         # Draw the Stopped Version
         #left leg
-        fill(random(255), random(255), random(255))
+        fill(colorLL)
         ellipse(circleLL, 500, 100, 100)
 
 #RIGHT LEG        
@@ -109,13 +126,14 @@ def draw():
     if stop_char:
         #Draw the Moving Version
      #right leg
-        fill(random(255), random(255), random(255))
+        colorRL = color(random(255), random(255), random(255))
+        fill(colorRL)
         ellipse(circleRL, 500, 100, 100)
         circleRL = circleRL + circleDirectionRL   
     else:
         # Draw the Stopped Version
         #right leg
-        fill(random(255), random(255), random(255))
+        fill(colorRL)
         ellipse(circleRL, 500, 100, 100)
 
 #LEFT ARM        
@@ -126,13 +144,14 @@ def draw():
     if stop_char:
         #Draw the Moving Version
      #left arm
-        fill(random(255), random(255), random(255))
+        colorRA = color(random(255), random(255), random(255))
+        fill(colorRA)
         ellipse(circleLA, 300, 75, 75)
         circleLA = circleLA + circleDirectionLA   
     else:
         # Draw the Stopped Version
         #left arm
-        fill(random(255), random(255), random(255))
+        fill(colorLA)
         ellipse(circleLA, 300, 75, 75)
         
 #RIGHT ARM        
@@ -143,14 +162,18 @@ def draw():
     if stop_char:
         #Draw the Moving Version
      #left arm
-        fill(random(255), random(255), random(255))
+        colorRA = color(random(255), random(255), random(255))
+        fill(colorRA)
         ellipse(circleRA, 300, 75, 75)
         circleRA = circleRA + circleDirectionRA   
     else:
         # Draw the Stopped Version
         #left arm
-        fill(random(255), random(255), random(255))
+        fill(colorRA)
         ellipse(circleRA, 300, 75, 75)
+        
+# #HAT       
+#     image(top, 50, 50, (6138/1000), (5000/500))
         
 #EYES
     fill(0)
